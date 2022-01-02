@@ -19,9 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
-        ..scale(scaleFactor),
+        ..scale(scaleFactor)..rotateY(isDrawerOpen ? -0.5:0),
       duration: const Duration(milliseconds: 250),
-      color: Colors.grey[200],
+      
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(isDrawerOpen ? 40: 0)
+      ),
       child: ListView(
         children: [
           Column(
